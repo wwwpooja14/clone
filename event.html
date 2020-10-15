@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoded", function(event) {
+                document
+                    .getElementById("parentElement")
+                    .addEventListener("click", function clickMehod(event) {
+                            var newImage = (event.target.getAttribute("img");
+
+
+                                document.getElementById("displayImage")
+                            });
+
+                    });
+
+            function testdivclick() {
+                alert("testulCLICK");
+            }
+</script>
+<style>
+    .slides {
+        display: flex;
+    }
+    
+    .left-img {
+        width: 100px;
+    }
+</style>
+
+<body>
+    <div class="slides" id="parentElement">
+        <div class="left-side">
+            <div class="left-img">
+                <img src="https://cdn.sstatic.net/Img/home/ask-a-question.svg">
+                <p>Ask a question ></p>
+            </div>
+            <div class="left-img">
+                <img src="https://cdn.sstatic.net/Img/home/votes.svg">
+                <p>Vote on everything</p>
+            </div>
+            <div class="left-img">
+                <img src="https://cdn.sstatic.net/Img/home/answer.svg">
+                <p>Answer questions</p>
+            </div>
+        </div>
+        <div class="middle-side">
+            <div class="middle-img">
+                <img src="https://cdn.sstatic.net/Img/home/illo-feats-vote.svg?v=9d2eb0efdc17" id="displayImage">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="right-img">
+                <img src="https://cdn.sstatic.net/Img/home/tags.svg">
+                <p>
+                    Tag your question</p>
+            </div>
+            <div class="right-img">
+                <img src="https://cdn.sstatic.net/Img/home/accept.svg">
+                <p>Accept an answer
+                </p>
+            </div>
+            <div class="right-img">
+                <img src="https://cdn.sstatic.net/Img/home/get-recognized.svg">
+                <p>Get recognized</p>
+            </div>
+        </div>
+
+</body>
+
+</html>
