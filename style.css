@@ -3,26 +3,23 @@ body {
 }
 
 .container {
-    width: 340px;
+    width: 320px;
     height: 320px;
     margin: auto;
+    margin-top: 100px;
 }
 
-h1 {
+.container h1 {
     text-align: center;
     font-size: 50px;
 }
 
 .row {
-    height: 120px;
+    height: 100px;
 }
 
-.border-b {
-    border-bottom: 10px solid black;
-}
-
-.clo {
-    height: 120px;
+.col {
+    height: 100px;
     width: 100px;
     float: left;
     font-size: 100px;
@@ -30,8 +27,12 @@ h1 {
     line-height: 100px;
 }
 
-.clo:hover {
-    background-color: coral;
+.col:hover {
+    background-color: lightgray;
+}
+
+.border-b {
+    border-bottom: 10px solid black;
 }
 
 .border-r {
@@ -39,5 +40,5 @@ h1 {
 }
 
 .winner {
-    color: white;
+    color: blue;
 }

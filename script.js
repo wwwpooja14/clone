@@ -8,38 +8,34 @@ function TicTacToeGame() {
     let turn = 0;
 
     this.start = function() {
-        const value = { childList: true };
+        const config = { childList: true };
         const observer = new MutationObserver(() => takeTurn());
-        board.positions.forEach((element) => observer.observe(element, value));
+        board.positions.forEach((el) => observer.observe(el, config));
         takeTurn();
     }
 
     function takeTurn() {
-        //console.log("something changed")
         if (board.checkForWinner()) {
             return;
         }
 
-
-
         if (turn % 2 === 0) {
             humanPlayer.takeTurn();
-
         } else {
             computerPlayer.takeTurn();
         }
+
         turn++;
     };
 }
 
-
 function Board() {
-    this.positions = Array.from(document.querySelectorAll('.cloumn'));
-    //console.log(this.positions);
+    this.positions = Array.from(document.querySelectorAll('.col'));
+
     this.checkForWinner = function() {
         let winner = false;
 
-        const winningCombination = [
+        const winningCombinations = [
             [0, 1, 2],
             [3, 4, 5],
             [6, 7, 8],
@@ -47,29 +43,45 @@ function Board() {
             [2, 4, 6],
             [0, 3, 6],
             [1, 4, 7],
-            [2, 5, 8],
-
+            [2, 5, 8]
         ];
-    }
-}
 
-function HumanPlayer(board) {
+        const positions = this.positions;
+        winningCombinations.forEach((winningCombo) => {
+            const pos0InnerText = positions[winningCombo[0]].innerText;
+            const pos1InnerText = positions[winningCombo[1]].innerText;
+            const pos2InnerText = positions[winningCombo[2]].innerText;
+            const isWinningCombo = pos0InnerText !== '' &&
+                pos0InnerText === pos1InnerText && pos1InnerText === pos2InnerText;
+            if (isWinningCombo) {
+                winner = true;
+                winningCombo.forEach((index) => {
+                    positions[index].className += ' winner';
+                })
+            }
+        });
 
-    this.takeTurn = function() {
-        //console.log("human player")
-        board.positions.
-        forEach(element => element.addEventListner('click', handleturnTaken));
-
-    }
-
-    function handleturnTaken(event) {
-        console.log("turn taken")
+        return winner;
     }
 }
 
 function ComputerPlayer(board) {
-
     this.takeTurn = function() {
-        console.log("computer player")
+        let availablePositions = board.positions.filter((p) => p.innerText === '');
+        const move = Math.floor(Math.random() * (availablePositions.length - 0));
+        availablePositions[move].innerText = 'O';
+    }
+}
+
+function HumanPlayer(board) {
+    this.takeTurn = function() {
+        board.positions.forEach(el =>
+            el.addEventListener('click', handleTurnTaken));
+    }
+
+    function handleTurnTaken(event) {
+        event.target.innerText = 'X';
+        board.positions
+            .forEach(el => el.removeEventListener('click', handleTurnTaken));
     }
 }
