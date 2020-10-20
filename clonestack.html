@@ -12,6 +12,22 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/Product/product.css?v=d607671ccccc">
 
     <meta name="robots" content="noindex nofollow" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById("leftSideElements")
+                .addEventListener("click", function clickMethod(event) {
+                    var newImage = event.target.getAttribute("img");
+                    console.log(newImage);
+                    document.getElementById("displayImage").setAttribute("src", newImage);
+
+                });
+            document.getElementById("rightSideElements")
+                .addEventListener("click", function clickMethod(event) {
+                    var newImage = event.target.getAttribute("img");
+                    document.getElementById("displayImage").setAttribute("src", newImage);
+                });
+        });
+    </script>
 </head>
 
 <body>
@@ -270,37 +286,37 @@
         </div>
 
         <div class="slides">
-            <div class="left-side">
-                <div class="left-img">
+            <div class="left-side" id="leftSideElements">
+                <div class="left-img" img="https://cdn.sstatic.net/Img/home/illo-feats-ask.svg?v=b6cd07f0765">
                     <img src="https://cdn.sstatic.net/Img/home/ask-a-question.svg">
                     <p>Ask a question ></p>
                 </div>
-                <div class="left-img">
+                <div class="left-img" img="https://cdn.sstatic.net/Img/home/illo-feats-vote.svg?v=9d2eb0efdc17">
                     <img src="https://cdn.sstatic.net/Img/home/votes.svg">
                     <p>Vote on everything</p>
                 </div>
-                <div class="left-img">
+                <div class="left-img" img="https://cdn.sstatic.net/Img/home/illo-feats-answer.svg">
                     <img src="https://cdn.sstatic.net/Img/home/answer.svg">
                     <p>Answer questions</p>
                 </div>
             </div>
             <div class="middle-side">
                 <div class="middle-img">
-                    <img src="https://cdn.sstatic.net/Img/home/illo-feats-vote.svg?v=9d2eb0efdc17">
+                    <img src="https://cdn.sstatic.net/Img/home/illo-feats-vote.svg" id="displayImage" class="ask-img">
                 </div>
             </div>
-            <div class="right-side">
-                <div class="right-img">
+            <div class="right-side" id="rightSideElements">
+                <div class="right-img" img="https://cdn.sstatic.net/Img/home/illo-feats-tags.svg">
                     <img src="https://cdn.sstatic.net/Img/home/tags.svg">
                     <p>
                         Tag your question</p>
                 </div>
-                <div class="right-img">
+                <div class="right-img" img="https://cdn.sstatic.net/Img/home/illo-feats-accept.svg">
                     <img src="https://cdn.sstatic.net/Img/home/accept.svg">
                     <p>Accept an answer
                     </p>
                 </div>
-                <div class="right-img">
+                <div class="right-img" img="https://cdn.sstatic.net/Img/home/illo-feats-recognize.svg">
                     <img src="https://cdn.sstatic.net/Img/home/get-recognized.svg">
                     <p>Get recognized</p>
                 </div>
