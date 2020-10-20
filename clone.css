@@ -91,7 +91,7 @@
         font-size: 13px;
         font-family: "Roboto Slab", serif;
         border: 1px solid transparent;
-        padding: -2px 24px;
+        padding: 5px 24px;
         font-weight: 400;
         border-radius: 20px;
     }
@@ -103,6 +103,10 @@
     @media(max-width:600px) {
         nav {
             display: flex;
+        }
+        nav a {
+            padding: 2px;
+            ;
         }
     }
     
@@ -1600,7 +1604,13 @@ padding-bottom: 10px;*/
         width: 70px;
         margin-top: 4rem;
         margin-bottom: 1px;
-        margin-left: 1330px;
+        margin-left: 1370px;
+    }
+    
+    @media(max-width:1295px) {
+        .robot {
+            margin-left: 1180px;
+        }
     }
     
     @media(max-width:600px) {
