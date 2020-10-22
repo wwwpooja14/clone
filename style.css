@@ -1,5 +1,5 @@
 body {
-    background-color: darkblue;
+    background-color: orangered;
 }
 
 .container {
@@ -14,12 +14,18 @@ body {
     font-size: 50px;
 }
 
+.box {
+    height: 319px;
+    width: 322px;
+    border: 10px solid black;
+}
+
 .row {
     height: 100px;
 }
 
 .col {
-    height: 100px;
+    height: 101px;
     width: 100px;
     float: left;
     font-size: 100px;
@@ -40,5 +46,5 @@ body {
 }
 
 .winner {
-    color: blue;
+    color: white;
 }
